@@ -5,7 +5,7 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      imageURL: '',
+      imageURL: '../../public/logo192.png',
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -16,7 +16,7 @@ class Main extends React.Component {
 
     const data = new FormData();
     data.append('file', this.uploadInput.files[0]);
-    data.append('filename', this.fileName.value);
+    data.append('filename', 'this.fileName.value');
 
     fetch('http://localhost:8000/upload', {
       method: 'POST',
@@ -34,9 +34,9 @@ class Main extends React.Component {
         <div>
           <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
         </div>
-        <div>
+        {/* <div>
           <input ref={(ref) => { this.fileName = ref; }} type="text" placeholder="Enter the desired name of file" />
-        </div>
+        </div> */}
         <br />
         <div>
           <button>Upload</button>
